@@ -99,7 +99,7 @@ Abaixo vamos criar e executar uma aplicação node.js sem ter o node instalado e
 > na nossa máquina e no container (tudo que estiver em um, estará no outro), mapeia a porta da nossa máquina com o container e sobe a imagem do node v15.
 
 - Após o bash ser carregado, utilize o comando: `cd /usr/src/app`.
-- Rode o comando: `npm init`, e em seguida o: `npm install express --save`.
+- Rode o comando: `npm init` e aperte `Enter` até finalizar, e em seguida rode o comando: `npm install express --save`.
 - E você verá que os arquivos serão criados na pasta node da sua máquina.
 - Por fim, rodaremos o comando: `node index.js`, que pegará o nosso arquivo `index.js` e subirá com node sem termos 
 o node instalado em nossa máquina.
