@@ -77,4 +77,11 @@ com o outro container, pois estão na mesma rede.
 o comando:** `docker network connect {nome_da_rede} {nome_do_container}`.
 > * E para visualizar os containers da rede, utilize o comando: `docker network inspect {nome_da_rede}`.
 
+
+## Acessando uma aplicação da sua máquina dentro do container
+
+- Primeiro passo é ter uma aplicação rodando em sua máquina.
+- Para fins de teste, usaremos o container do ubuntu: `docker run --rm -it --name ubuntu ubuntu bash`.
+- No bash, instale o **curl**: `apt-get update && apt-get install curl -y`.
+- Depois, digite: `curl http://host.docker.internal:{porta_aplicação}`
 ---
