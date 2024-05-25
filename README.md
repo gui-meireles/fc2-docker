@@ -83,5 +83,26 @@ o comando:** `docker network connect {nome_da_rede} {nome_do_container}`.
 - Primeiro passo é ter uma aplicação rodando em sua máquina.
 - Para fins de teste, usaremos o container do ubuntu: `docker run --rm -it --name ubuntu ubuntu bash`.
 - No bash, instale o **curl**: `apt-get update && apt-get install curl -y`.
-- Depois, digite: `curl http://host.docker.internal:{porta_aplicação}`
+- Depois, digite: `curl http://host.docker.internal:{porta_aplicação}`.
+
+---
+
+## Criando aplicação node.js
+
+Abaixo vamos criar e executar uma aplicação node.js sem ter o node instalado em nossa máquina.
+
+- Primeiro abra um terminal no diretório do `fc2-docker/node`.
+- Digite o comando no linux: `docker run --rm -it -v $(pwd)/:/usr/src/app -p 3000:3000 node:15 bash`.
+- Ou no Windows: `docker run --rm -it -v D:/Users/gmeir/Documents/fc2-docker/node/:/usr/src/app -p 3000:3000 node:15 bash`.
+
+> O comando acima remove o container caso não esteja sendo utilizado, abre o bash ao ser executado, mapeia o volume
+> na nossa máquina e no container (tudo que estiver em um, estará no outro), mapeia a porta da nossa máquina com o container e sobe a imagem do node v15.
+
+- Após o bash ser carregado, utilize o comando: `cd /usr/src/app`.
+- Rode o comando: `npm init`, e em seguida o: `npm install express --save`.
+- E você verá que os arquivos serão criados na pasta node da sua máquina.
+- Por fim, rodaremos o comando: `node index.js`, que pegará o nosso arquivo `index.js` e subirá com node sem termos 
+o node instalado em nossa máquina.
+- Para ver o código html rodando, podemos acessar pelo navegador o: `localhost:3000`.
+
 ---
