@@ -114,3 +114,15 @@ o node instalado em nossa máquina.
 > O nome da imagem pode ser qualquer um, fica ao seu critério.
 
 ---
+
+## Otimizando com Multistage Building
+
+Para otimizar nossos containers, podemos utilizar o Multistage Building.
+
+No arquivo que está em `php/Dockerfile.prod` utilizamos essa função para reduzir drasticamente
+o tamanho do nosso container, e consequentemente deixa-lo mais rápido.
+
+> Para executar o Dockerfile com outro nome, abriremos um terminal na raiz do projeto
+> (fc2-docker) e utilizamos o comando: `docker build -t guilhermemmnn/php.prod php -f php/Dockerfile.prod`.
+> <br> Sendo que, `guilhermemmnn/php.prod` é tag do container e
+> <br> `php -f php/Dockerfile.prod` é onde o arquivo se encontra.
