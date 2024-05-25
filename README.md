@@ -105,4 +105,12 @@ Abaixo vamos criar e executar uma aplicação node.js sem ter o node instalado e
 o node instalado em nossa máquina.
 - Para ver o código html rodando, podemos acessar pelo navegador o: `localhost:3000`.
 
+### Subindo nosso node.js no DockerHub
+
+- Abra o terminal no diretório do Dockerfile (fc2-docker/node).
+- Build a imagem com o comando: `docker build -t {usuario_dockerhub}/{nome_da_imagem} .`
+- Suba a imagem no dockerhub com o comando: `docker push {usuario_dockerhub}/{nome_da_imagem}`.
+
+> O nome da imagem pode ser qualquer um, fica ao seu critério.
+>
 ---
