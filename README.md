@@ -53,3 +53,28 @@ caso é guilhermemmnn.
 ![docker_hub.png](readme_images%2Fdocker_hub.png)
 
 ---
+
+# Networks
+
+Utilizado para fazer a conexão entre containers.
+
+## Trabalhando com bridge (padrão)
+
+- Para criar uma rede: `docker network create --driver bridge {nome_da_rede}`.
+- Para baixar um container e subir ele nessa rede criada:
+`docker run -dit --name ubuntu1 --network {nome_da_rede} bash`.
+
+_Na imagem abaixo, foi criado 2 containers com nome de `ubuntu1` e `ubuntu2` e rodando
+a imagem do bash:_
+![docker_bridge.png](readme_images%2Fdocker_bridge.png)
+
+Agora entre no bash em um dos containers, com o comando: `docker exec -it ubuntu1 bash`.
+
+- Ao digitar no bash desse container: `ping ubuntu2` veremos que ele consegue se comunicar
+com o outro container, pois estão na mesma rede.
+
+> **Podemos conectar um container que está rodando em outra network, utilizando
+o comando:** `docker network connect {nome_da_rede} {nome_do_container}`.
+> * E para visualizar os containers da rede, utilize o comando: `docker network inspect {nome_da_rede}`.
+
+---
