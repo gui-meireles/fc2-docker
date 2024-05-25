@@ -112,5 +112,5 @@ o node instalado em nossa máquina.
 - Suba a imagem no dockerhub com o comando: `docker push {usuario_dockerhub}/{nome_da_imagem}`.
 
 > O nome da imagem pode ser qualquer um, fica ao seu critério.
->
+
 ---
