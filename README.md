@@ -126,3 +126,21 @@ o tamanho do nosso container, e consequentemente deixa-lo mais rápido.
 > (fc2-docker) e utilizamos o comando: `docker build -t guilhermemmnn/php.prod php -f php/Dockerfile.prod`.
 > <br> Sendo que, `guilhermemmnn/php.prod` é tag do container e
 > <br> `php -f php/Dockerfile.prod` é onde o arquivo se encontra.
+
+---
+
+### Utilizando nginx com php
+
+- Abra um terminal no diretório `fc2-docker/nginx`.
+- Rode o comando `docker build -t guilhermemmnn/nginx:prod . -f Dockerfile.prod`.
+- E vamos criar uma network para os containers se comunicarem: `docker network create laranet`.
+- Agora, lembre de ter buildado o `Dockerfile.prod` que está em `fc2-docker/php`.
+- E rodar nossa imagem na network: `docker run -d --network laranet --name laravel guilhermemmnn/laravel:prod`.
+- Agora vamos subir nosso nginx na nossa rede: `docker run -d --network laranet --name nginx -p 8080:80 guilhermemmnn/nginx:prod`.
+- Se você rodar um docker ps, você verá os seguintes containers rodando:
+
+![docker_ps.png](readme_images%2Fdocker_ps.png)
+> Com isso, ao acessarmos o link: `localhost:8080` no navegador, o nginx chamará o laravel/php que está na porta 9000
+e vai nos devolver a resposta pela porta `8080`.
+
+---
