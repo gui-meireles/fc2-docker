@@ -99,11 +99,21 @@ Abaixo vamos criar e executar uma aplicação node.js sem ter o node instalado e
 > na nossa máquina e no container (tudo que estiver em um, estará no outro), mapeia a porta da nossa máquina com o container e sobe a imagem do node v15.
 
 - Após o bash ser carregado, utilize o comando: `cd /usr/src/app`.
-- Rode o comando: `npm init` e aperte `Enter` até finalizar, e em seguida rode o comando: `npm install express --save`.
+- Rode o comando: `npm init` e aperte `Enter` até finalizar, e em seguida rode o comando: `npm install express --save` e
+o comando `npm install mysql --save`.
 - E você verá que os arquivos serão criados na pasta node da sua máquina.
 - Por fim, rodaremos o comando: `node index.js`, que pegará o nosso arquivo `index.js` e subirá com node sem termos 
 o node instalado em nossa máquina.
 - Para ver o código html rodando, podemos acessar pelo navegador o: `localhost:3000`.
+
+### Subindo node.js com mysql com docker-compose
+
+- Suba o docker-compose.mysql.yaml.
+- Abra dois terminais e em cada um digite um dos comandos: `docker exec -it db bash` e `docker exec -it app bash`.
+- No terminal do `mysql` rode os comandos na sequência: `mysql -uroot -p`, `root`, `use nodedb`, 
+`create table people(id int not null auto_increment, name varchar(255), primary key(id));`.
+- Agora no terminal do `app`, rode o comando: `npm install mysql --save` e logo em seguida o: `node index.js`.
+- E se você fizer um **select** na tabela de people no mysql, verá que ele criou uma linha com _Guilherme_
 
 ### Subindo nosso node.js no DockerHub
 
